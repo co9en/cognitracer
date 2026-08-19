@@ -221,6 +221,20 @@
   </style>
 </head>
 <body>
+
+<script>
+  const password = prompt("enter course code as one connected string (letters smallcap)");
+
+  if (password !== "mba553") {
+    document.body.innerHTML = `
+      <div style="font-family: sans-serif; text-align:center; margin-top:100px;">
+        <h2>Access denied</h2>
+      </div>
+    `;
+    throw new Error("Access denied");
+  }
+</script>
+
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="CogniTracer home"><span class="brand-mark" aria-hidden="true"></span><span>COGNI<span class="gradient-text">TRACER</span></span></a>
