@@ -218,22 +218,39 @@
       html { scroll-behavior: auto; }
       .fade { opacity: 1; transform: none; transition: none; }
     }
+
+    /* Lightweight demo password gate */
+    body.locked > * {
+      display: none !important;
+    }
+
   </style>
+
 </head>
-<body>
+<body class="locked">
 
-<script>
-  const password = prompt("enter course code as one connected string (letters smallcap)");
+  <script>
+    const password = prompt("Enter course code (one string, letters smallcaps):");
 
-  if (password !== "mba553") {
-    document.body.innerHTML = `
-      <div style="font-family: sans-serif; text-align:center; margin-top:100px;">
-        <h2>Access denied</h2>
-      </div>
-    `;
-    throw new Error("Access denied");
-  }
-</script>
+    if (password === "mba553") {
+      document.body.classList.remove("locked");
+    } else {
+      document.body.innerHTML = `
+        <div style="
+          display:flex !important;
+          height:100vh;
+          align-items:center;
+          justify-content:center;
+          font-family:sans-serif;
+          color:white;
+          background:#06101f;
+        ">
+          <h1>Access denied</h1>
+        </div>
+      `;
+    }
+  </script>
+
 
   <header class="nav">
     <div class="wrap nav-inner">
