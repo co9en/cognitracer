@@ -218,40 +218,9 @@
       html { scroll-behavior: auto; }
       .fade { opacity: 1; transform: none; transition: none; }
     }
-
-    /* Lightweight demo password gate */
-    body.locked > * {
-      display: none !important;
-    }
-
   </style>
-
 </head>
-<body class="locked">
-
-  <script>
-    const password = prompt("Enter course code (one string, letters smallcap):");
-
-    if (password === "mba553") {
-      document.body.classList.remove("locked");
-    } else {
-      document.body.innerHTML = `
-        <div style="
-          display:flex !important;
-          height:100vh;
-          align-items:center;
-          justify-content:center;
-          font-family:sans-serif;
-          color:white;
-          background:#06101f;
-        ">
-          <h1>Access denied</h1>
-        </div>
-      `;
-    }
-  </script>
-
-
+<body>
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="CogniTracer home"><span class="brand-mark" aria-hidden="true"></span><span>COGNI<span class="gradient-text">TRACER</span></span></a>
@@ -424,7 +393,5 @@
       if (window.innerWidth > 680) setMenu(false);
     });
   </script>
-
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fec4fc4e083d4edba29a543a0cc77e46"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
