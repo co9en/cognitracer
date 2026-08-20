@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CogniTracer helps you establish a personal cognitive baseline, monitor change over time, and turn subtle signals into meaningful action.">
   <meta name="theme-color" content="#06101f">
@@ -218,40 +219,9 @@
       html { scroll-behavior: auto; }
       .fade { opacity: 1; transform: none; transition: none; }
     }
-
-    /* Lightweight demo password gate */
-    body.locked > * {
-      display: none !important;
-    }
-
   </style>
-
 </head>
-<body class="locked">
-
-  <script>
-    const password = prompt("Enter course code (one string, letters smallcap):");
-
-    if (password === "mba553") {
-      document.body.classList.remove("locked");
-    } else {
-      document.body.innerHTML = `
-        <div style="
-          display:flex !important;
-          height:100vh;
-          align-items:center;
-          justify-content:center;
-          font-family:sans-serif;
-          color:white;
-          background:#06101f;
-        ">
-          <h1>Access denied</h1>
-        </div>
-      `;
-    }
-  </script>
-
-
+<body>
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="CogniTracer home"><span class="brand-mark" aria-hidden="true"></span><span>COGNI<span class="gradient-text">TRACER</span></span></a>
