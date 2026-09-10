@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research and references on brain health, cognitive monitoring, wellness, and wearable adoption.">
+  <meta name="theme-color" content="#06101f">
+  <title>Research — CogniTracer</title>
+  <style>
+    :root {
+      --ink: #06101f;
+      --line: rgba(111, 176, 255, .18);
+      --text: #f4f8ff;
+      --muted: #a9bad0;
+      --blue: #2f9cff;
+      --cyan: #49d8ff;
+      --mint: #55e0bd;
+      --max: 820px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 52% 8%, rgba(20, 105, 196, .16), transparent 30rem),
+        linear-gradient(180deg, #040b17 0%, var(--ink) 45%, #050e1b 100%);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .2;
+      background-image: linear-gradient(rgba(80, 150, 225, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(80, 150, 225, .04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .gradient-text { color: transparent; background: linear-gradient(110deg, var(--blue), var(--cyan) 55%, var(--mint)); background-clip: text; -webkit-background-clip: text; }
+
+    .nav {
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(130, 179, 238, .11);
+      background: rgba(4, 11, 23, .78);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner { width: min(calc(100% - 40px), 1180px); height: 72px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 750; letter-spacing: .17em; font-size: .96rem; }
+    .brand-mark { position: relative; width: 29px; height: 29px; border: 2px solid var(--blue); border-radius: 50%; box-shadow: 0 0 22px rgba(47, 156, 255, .35); }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; border: 1.5px solid var(--cyan); border-radius: 50%; }
+    .brand-mark::before { inset: 5px; border-bottom-color: transparent; }
+    .brand-mark::after { inset: 10px; background: var(--cyan); }
+    .back-link { color: #b7c7da; font-size: .88rem; }
+    .back-link:hover { color: white; }
+    .back-link:focus-visible, .brand:focus-visible, .source-link:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+    main { position: relative; padding: 150px 0 90px; }
+    .eyebrow { color: var(--cyan); font-size: .74rem; font-weight: 750; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 16px 0 20px; font-size: clamp(2.8rem, 7vw, 5rem); line-height: 1; letter-spacing: -.055em; }
+    .intro { max-width: 660px; margin: 0 0 55px; color: var(--muted); font-size: 1.08rem; }
+    .research-content { display: grid; gap: 18px; }
+    .research-section { padding: 28px 30px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(160deg, rgba(15, 39, 73, .62), rgba(7, 20, 38, .42)); }
+    .research-section h2, .research-section h3 { margin: 0 0 12px; font-size: 1.2rem; letter-spacing: -.015em; }
+    .research-section p { margin: 0 0 12px; color: var(--muted); }
+    .research-section p:last-child { margin-bottom: 0; }
+    .research-section ul { margin: 0 0 16px; padding-left: 22px; color: var(--muted); }
+    .research-section li { padding-left: 4px; }
+    .research-section li::marker { color: var(--cyan); }
+    .research-section strong { color: var(--text); }
+    .source-link { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(73, 216, 255, .4); text-underline-offset: 3px; }
+    .source-link { overflow-wrap: anywhere; }
+    .source-link:hover { text-decoration-color: var(--cyan); }
+    .research-content { list-style: none; padding: 0; margin: 0; }
+    .research-section .retrieved { font-size: .85rem; }
+
+    [id] { scroll-margin-top: 96px; }
+    .insights { margin-bottom: 38px; }
+    .insights li + li { margin-top: 18px; }
+    .section-heading { margin: 0 0 20px; font-size: 1.65rem; letter-spacing: -.025em; }
+    .market-sizing { margin-bottom: 52px; }
+    .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
+    .table-scroll:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; }
+    caption { padding: 18px; text-align: left; color: var(--muted); }
+    th, td { padding: 16px 18px; border-top: 1px solid var(--line); vertical-align: top; }
+    thead th { background: rgba(15, 39, 73, .62); color: var(--text); }
+    tbody th { font-weight: 500; }
+    td { color: var(--muted); }
+    td:nth-child(2) { white-space: nowrap; color: var(--text); font-weight: 700; }
+    .market-result { background: rgba(85, 224, 189, .08); }
+    .market-result th, .market-result td:nth-child(2) { color: var(--mint); font-weight: 750; }
+    .method-note { color: var(--muted); font-size: .85rem; margin: 16px 0 0; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    footer { position: relative; padding: 34px 0 45px; color: #6f849c; font-size: .8rem; }
+    .footer-inner { padding-top: 25px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 680px) {
+      .wrap, .nav-inner { width: min(calc(100% - 28px), var(--max)); }
+      .nav-inner { height: 64px; }
+      .brand { font-size: .84rem; letter-spacing: .13em; }
+      .brand-mark { width: 26px; height: 26px; }
+      main { padding: 125px 0 65px; }
+      .intro { margin-bottom: 38px; }
+      .research-section { padding: 23px 21px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="CogniTracer home"><span class="brand-mark" aria-hidden="true"></span><span>COGNI<span class="gradient-text">TRACER</span></span></a>
+      <a class="back-link" href="index.html">← Back to home</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="eyebrow">Research &amp; references</div>
+      <h1>Explore the <span class="gradient-text">research.</span></h1>
+      <p class="intro">Explore research insights on U.S. readiness for cognitive tracking. Follow an insight’s citation to its reference, then select the research title to read the original source.</p>
+      <section class="research-section insights" aria-labelledby="insights-heading">
+        <h2 id="insights-heading">Key insights: The opportunity for cognitive tracking</h2>
+        <p>Of the 128 million U.S. adults aged 35–65, an estimated 45% use health trackers. Assuming 70% are interested in long-term preventive monitoring and 46% of that group are interested in cognitive tracking, this suggests an initial potential audience of approximately <strong>19 million people</strong>.</p>
+        <ul>
+          <li><strong>Health tracking is part of everyday life.</strong> Smartwatches and health trackers have made personal health data familiar to millions of Americans. Cognitive tracking offers a natural next step for people who already want to understand their health better. (<a class="source-link" href="#ref-pew">Pew Research Center, 2026</a>; <a class="source-link" href="#ref-rock-health">Nagappan, Knowles, &amp; Krasniansky, 2024</a>)</li>
+          <li><strong>Today’s insights. A longer-term perspective.</strong> Interest in healthy aging and ongoing health tracking creates an opportunity to bring cognitive wellness into everyday routines. CogniTracer’s vision is to help people get to know their cognitive patterns over time. (<a class="source-link" href="#ref-mckinsey">Callaghan et al., 2024</a>; <a class="source-link" href="#ref-deloitte">Steinhart, Hupfer, &amp; Upadhyaya, 2022</a>)</li>
+          <li><strong>Brain health deserves a place in the picture.</strong> Public interest in brain health and research into smartphone-based cognitive monitoring point to an opportunity for more accessible ways to understand cognitive wellness. The epilepsy study offers an encouraging perspective from a specific patient population; interest across the broader public may differ. (<a class="source-link" href="#ref-alzheimers">Alzheimer’s Association, 2026</a>; <a class="source-link" href="#ref-trackognize">Helmstaedter, Von Wrede, &amp; Al-Haj Mustafa, 2025</a>)</li>
+        </ul>
+      </section>
+
+
+      <h2 class="section-heading" id="references">References</h2>
+      <ol class="research-content" aria-label="References">
+        <li class="research-section" id="ref-alzheimers">
+          <p>Alzheimer’s Association. (2026, April 21).</p>
+          <h3><a class="source-link" href="https://www.alz.org/news/2026/facts-figures-report-brain-health">New Alzheimer’s Association report: Americans care deeply about brain health but most don’t know how to maintain it.</a></h3>
+          <p>Alzheimer’s Association.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+        <li class="research-section" id="ref-mckinsey">
+          <p>Callaghan, S., Doner, H., Medalsy, J., Pione, A., &amp; Teichner, W. (2024, January 16).</p>
+          <h3><a class="source-link" href="https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/the-trends-defining-the-1-point-8-trillion-dollar-global-wellness-market-in-2024">The trends defining the $1.8 trillion global wellness market in 2024.</a></h3>
+          <p>McKinsey &amp; Company.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+        <li class="research-section" id="ref-trackognize">
+          <p>Helmstaedter, C., Von Wrede, R., &amp; Al-Haj Mustafa, S. (2025).</p>
+          <h3><a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/40633330/">Trackognize: A smartphone-based tool for continuous monitoring of cognitive functioning in epilepsy.</a></h3>
+          <p>Epilepsy &amp; Behavior.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+        <li class="research-section" id="ref-rock-health">
+          <p>Nagappan, A., Knowles, M., &amp; Krasniansky, A. (2024, August 5).</p>
+          <h3><a class="source-link" href="https://rockhealth.com/insights/put-a-ring-on-it-understanding-consumers-year-over-year-wearable-adoption-patterns/">Put a ring on it: Understanding consumers’ year-over-year wearable adoption patterns.</a></h3>
+          <p>Rock Health.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+        <li class="research-section" id="ref-pew">
+          <p>Pew Research Center. (2026, June 17).</p>
+          <h3><a class="source-link" href="https://www.pewresearch.org/chart/just-under-half-of-adults-under-50-have-a-smartwatch-while-smaller-shares-of-older-adults-say-so/">Just under half of adults under 50 have a smartwatch, while smaller shares of older adults say so.</a></h3>
+          <p>Pew Research Center.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+        <li class="research-section" id="ref-deloitte">
+          <p>Steinhart, M., Hupfer, S., &amp; Upadhyaya, J. (2022, December 8).</p>
+          <h3><a class="source-link" href="https://www.deloitte.com/us/en/insights/industry/technology/wearable-technology-wellbeing-health-nutrition.html">Healthy holidays: Wearables and health data may tip the scales toward better nutrition.</a></h3>
+          <p>Deloitte Insights.</p>
+          <p class="retrieved">Retrieved September 7, 2026.</p>
+        </li>
+      </ol>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">© <span id="year"></span> CogniTracer. · <a class="source-link" href="index.html">Home</a> · <a class="source-link" href="privacy.html">Privacy</a></div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
