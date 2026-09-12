@@ -389,9 +389,9 @@
       if (!['http:', 'https:'].includes(window.location.protocol)) return;
       event.preventDefault();
       const player = document.createElement('iframe');
-      player.src = 'https://www.youtube-nocookie.com/embed/TKVMQBIzf8Q';
+      player.src = 'https://www.youtube-nocookie.com/embed/TKVMQBIzf8Q?autoplay=1';
       player.title = 'CogniTracer product explainer';
-      player.allow = 'encrypted-media; picture-in-picture; fullscreen';
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       player.allowFullscreen = true;
       player.referrerPolicy = 'strict-origin-when-cross-origin';
       document.getElementById('explainer-video').replaceChildren(player);
